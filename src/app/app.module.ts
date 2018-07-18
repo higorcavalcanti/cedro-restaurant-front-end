@@ -13,6 +13,7 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
+  MatSlideToggleModule,
 } from '@angular/material';
 import {AppRoutingModule} from './app-routing.module';
 
@@ -32,7 +33,8 @@ import {AppRoutingModule} from './app-routing.module';
     AppRoutingModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

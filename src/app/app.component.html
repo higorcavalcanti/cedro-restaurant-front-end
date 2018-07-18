@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" [class.dark-mode]="darkmode">
   <mat-sidenav #drawer
     class="sidenav"
     fixedInViewport="true"
@@ -24,6 +24,8 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>{{title}}</span>
+
+      <mat-slide-toggle [checked]="darkmode" (toggleChange)="darkmode = !darkmode"></mat-slide-toggle>
     </mat-toolbar>
 
     <div id="container">

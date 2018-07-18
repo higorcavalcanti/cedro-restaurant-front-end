@@ -14,6 +14,7 @@ import {map, filter, mergeMap} from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  darkmode = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

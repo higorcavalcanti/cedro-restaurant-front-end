@@ -9,3 +9,15 @@ $restaurant-app-warn:    mat-palette($mat-red);
 $restaurant-app-theme: mat-light-theme($restaurant-app-primary, $restaurant-app-accent, $restaurant-app-warn);
 
 @include angular-material-theme($restaurant-app-theme);
+
+.dark-mode {
+  @include mat-core();
+
+  $restaurant-app-primary: mat-palette($mat-blue);
+  $restaurant-app-accent:  mat-palette($mat-amber, A200, A100, A400);
+  $restaurant-app-warn:    mat-palette($mat-red);
+
+  $restaurant-app-theme: mat-dark-theme($restaurant-app-primary, $restaurant-app-accent, $restaurant-app-warn);
+
+  @include angular-material-theme($restaurant-app-theme);
+}
