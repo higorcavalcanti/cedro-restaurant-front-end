@@ -6,8 +6,11 @@ import {DishListComponent} from './dish-list/dish-list.component';
 const routes: Routes = [
   {
     path: '',
-    component: DishListComponent
-  }
+    component: DishListComponent,
+    data: {
+      title: 'Gerenciar Pratos'
+    }
+  },
 ];
 
 @NgModule({

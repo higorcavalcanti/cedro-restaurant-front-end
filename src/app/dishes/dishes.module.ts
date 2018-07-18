@@ -7,7 +7,7 @@ import { DishListComponent } from './dish-list/dish-list.component';
 @NgModule({
   imports: [
     CommonModule,
-    DishesRoutingModule
+    DishesRoutingModule,
   ],
   declarations: [DishListComponent]
 })

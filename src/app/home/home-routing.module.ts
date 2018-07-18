@@ -6,7 +6,10 @@ import {HomeComponent} from './home.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {
+      title: 'Página Inicial'
+    },
   }
 ];
 

@@ -6,7 +6,10 @@ import {RestaurantListComponent} from './restaurant-list/restaurant-list.compone
 const routes: Routes = [
   {
     path: '',
-    component: RestaurantListComponent
+    component: RestaurantListComponent,
+    data: {
+      title: 'Gerenciar Restaurantes'
+    }
   }
 ];
 
