@@ -2,4 +2,11 @@
 @import 'themes/blue.scss';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+body {
+  margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.basic-container {
+  padding: 5px;
+}
