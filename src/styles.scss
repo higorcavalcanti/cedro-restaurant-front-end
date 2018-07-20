@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'themes/blue.scss';
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', Arial, sans-serif;
@@ -9,4 +12,14 @@ body {
 
 .basic-container {
   padding: 5px;
+}
+
+p-fieldset {
+  fieldset {
+    margin-bottom: 10px;
+  }
+}
+
+mat-form-field {
+  width: 100%;
 }
