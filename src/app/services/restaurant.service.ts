@@ -18,7 +18,7 @@ export class RestaurantService {
     return this.http.get<Restaurant[]>(URL);
   }
 
-  public get(id: Restaurant) {
+  public get(id: number|string) {
     const URL = `${environment.API_URL}/restaurants/${id}`;
     return this.http.get<Restaurant>(URL);
   }

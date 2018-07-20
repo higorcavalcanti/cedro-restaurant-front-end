@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 
 // Providers
 import {RestaurantService} from '../../services/restaurant.service';
@@ -8,16 +8,19 @@ import {RestaurantService} from '../../services/restaurant.service';
   templateUrl: './restaurant-list.component.html',
   styleUrls: ['./restaurant-list.component.scss']
 })
-export class RestaurantListComponent implements OnInit {
+export class RestaurantListComponent implements OnInit, AfterViewInit {
 
   protected filtro: any = {};
-  public restaurants;
+  protected restaurants;
 
   displayedColumns = ['name', 'opcoes'];
 
   constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     this.restaurantService.getAll().subscribe(
       (data) => {
         this.restaurants = data;
@@ -29,7 +32,7 @@ export class RestaurantListComponent implements OnInit {
     );
   }
 
-  editar(restaurant) {
-
+  remove(restaurant) {
+    console.log('Remover', restaurant);
   }
 }
