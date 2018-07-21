@@ -1,15 +1,14 @@
 <p-fieldset legend="Filtro">
   <div class="ui-g">
-    <div class="ui-sm-10 ui-md-8 ui-lg-5">
-      <mat-form-field>
-        <input matInput placeholder="Nome do restaurante" [(ngModel)]="filtro.name"/>
-      </mat-form-field>
-    </div>
-
     <div class="ui-sm-2">
       <button mat-icon-button color="primary" id="searchButton">
         <mat-icon aria-label="Pesquisar">search</mat-icon>
       </button>
+    </div>
+    <div class="ui-sm-10 ui-md-8 ui-lg-5">
+      <mat-form-field>
+        <input matInput placeholder="Nome do restaurante" [(ngModel)]="filtro.name"/>
+      </mat-form-field>
     </div>
   </div>
 </p-fieldset>

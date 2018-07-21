@@ -12,8 +12,22 @@ import {RestaurantService} from '../../services/restaurant.service';
 })
 export class RestaurantListComponent implements OnInit, AfterViewInit {
 
-  protected filtro: any = {};
-  protected restaurants;
+  // Filtro
+  protected filtro: {name: string} = { name: ''};
+
+  // Restaurantes
+  private _restaurants;
+  protected set restaurants(r) {
+    this._restaurants = r;
+  }
+  protected get restaurants() {
+    if (!this._restaurants) {
+      return [];
+    }
+    return this._restaurants.filter(r => {
+      return (r.name.toLowerCase().indexOf( this.filtro.name.toLowerCase() ) >= 0);
+    });
+  }
 
   displayedColumns = ['name', 'opcoes'];
 
