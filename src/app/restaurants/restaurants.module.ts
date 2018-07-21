@@ -6,7 +6,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RestaurantsRoutingModule} from './restaurants-routing.module';
 import {RestaurantListComponent} from './restaurant-list/restaurant-list.component';
 import {RestaurantFormComponent} from './restaurant-form/restaurant-form.component';
-import {RestaurantTableComponent} from './restaurant-table/restaurant-table.component';
 
 // Material
 import {
@@ -17,6 +16,7 @@ import {
   MatInputModule,
   MatButtonModule,
   MatIconModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 // PrimeNG
@@ -37,11 +37,12 @@ import {TableModule} from 'primeng/table';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatSnackBarModule,
     // PrimeNG
     FieldsetModule,
     TableModule,
   ],
-  declarations: [RestaurantListComponent, RestaurantTableComponent, RestaurantFormComponent]
+  declarations: [RestaurantListComponent, RestaurantFormComponent]
 })
 export class RestaurantsModule {
 }

@@ -4,19 +4,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+
 import {LayoutModule} from '@angular/cdk/layout';
 import {
   MatToolbarModule,
-  MatButtonModule,
   MatSidenavModule,
   MatIconModule,
   MatListModule,
-  MatTableModule,
-  MatPaginatorModule,
-  MatSortModule,
-  MatSlideToggleModule,
 } from '@angular/material';
-import {AppRoutingModule} from './app-routing.module';
 
 // Providers
 import {RestaurantService} from './services/restaurant.service';
@@ -30,21 +26,16 @@ import {RestaurantService} from './services/restaurant.service';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AppRoutingModule,
     // Material:
     LayoutModule,
     MatToolbarModule,
-    MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    AppRoutingModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatSlideToggleModule
   ],
   providers: [
-    RestaurantService
+    RestaurantService,
   ],
   bootstrap: [AppComponent]
 })

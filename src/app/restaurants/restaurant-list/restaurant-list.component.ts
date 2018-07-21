@@ -1,5 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 
+import {MatSnackBar} from '@angular/material';
+
 // Providers
 import {RestaurantService} from '../../services/restaurant.service';
 
@@ -15,7 +17,8 @@ export class RestaurantListComponent implements OnInit, AfterViewInit {
 
   displayedColumns = ['name', 'opcoes'];
 
-  constructor(private restaurantService: RestaurantService) { }
+  constructor(private snackBar: MatSnackBar,
+              private restaurantService: RestaurantService) { }
 
   ngOnInit() {
   }
@@ -34,5 +37,19 @@ export class RestaurantListComponent implements OnInit, AfterViewInit {
 
   remove(restaurant) {
     console.log('Remover', restaurant);
+    if (confirm(`Deseja realmente remover o restaurante '${restaurant.name}'?`)) {
+      this.restaurantService.delete(restaurant.id).subscribe(
+        (data) => {
+          this.snackBar.open('Restaurante apagado com sucesso!', 'Fechar', {duration: 5000});
+          this.restaurants = this.restaurants.filter(item => {
+            return item.id !== restaurant.id;
+          });
+        },
+        (err) => {
+          console.log('Erro apagar', err);
+          this.snackBar.open('Falha ao deletar restaurante!', 'Fechar');
+        }
+      );
+    }
   }
 }

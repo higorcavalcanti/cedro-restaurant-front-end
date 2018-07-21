@@ -1,6 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
+// Material
+import {MatSnackBar} from '@angular/material';
+
 // Model
 import {Restaurant} from '../../models/restaurant';
 
@@ -19,6 +22,7 @@ export class RestaurantFormComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
+              private snackBar: MatSnackBar,
               protected restauranteService: RestaurantService) { }
 
   ngOnInit() {
@@ -69,10 +73,12 @@ export class RestaurantFormComponent implements OnInit {
     this.getSaveFunction().subscribe(
       (r) => {
         console.log('Salvo', r);
+        this.snackBar.open('Restaurante salvo com sucesso!', 'Fechar', {duration: 5000});
         this.goIndex();
       },
       (err) => {
         console.log('Erro ao salvar', err);
+        this.snackBar.open('Falha ao salvar restaurante!', 'Fechar', {duration: 5000});
       }
     );
   }
