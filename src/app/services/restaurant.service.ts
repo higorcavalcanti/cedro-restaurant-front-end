@@ -10,31 +10,28 @@ import {Restaurant} from '../models/restaurant';
 })
 export class RestaurantService {
 
+  private URL = `${environment.API_URL}/restaurants`;
+
   constructor(private http: HttpClient) {
   }
 
   public getAll() {
-    const URL = `${environment.API_URL}/restaurants`;
-    return this.http.get<Restaurant[]>(URL);
+    return this.http.get<Restaurant[]>(`${this.URL}`);
   }
 
-  public get(id: number|string) {
-    const URL = `${environment.API_URL}/restaurants/${id}`;
-    return this.http.get<Restaurant>(URL);
+  public get(id: number | string) {
+    return this.http.get<Restaurant>(`${this.URL}/${id}`);
   }
 
   public create(restaurant: Restaurant) {
-    const URL = `${environment.API_URL}/restaurants`;
-    return this.http.post<Restaurant>(URL, restaurant);
+    return this.http.post<Restaurant>(`${this.URL}/`, restaurant);
   }
 
   public update(restaurant: Restaurant) {
-    const URL = `${environment.API_URL}/restaurants/${restaurant.id}`;
-    return this.http.put(URL, restaurant);
+    return this.http.put(`${this.URL}/${restaurant.id}`, restaurant);
   }
 
   public delete(id: number) {
-    const URL = `${environment.API_URL}/restaurants/${id}`;
-    return this.http.delete(URL);
+    return this.http.delete(`${this.URL}/${id}`);
   }
 }

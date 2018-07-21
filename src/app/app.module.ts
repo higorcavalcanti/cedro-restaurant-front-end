@@ -16,6 +16,7 @@ import {
 
 // Providers
 import {RestaurantService} from './services/restaurant.service';
+import {DishesService} from './services/dishes.service';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,9 @@ import {RestaurantService} from './services/restaurant.service';
   ],
   providers: [
     RestaurantService,
+    DishesService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
 }
