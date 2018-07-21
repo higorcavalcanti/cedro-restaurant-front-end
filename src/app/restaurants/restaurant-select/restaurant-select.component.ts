@@ -12,18 +12,18 @@ export class RestaurantSelectComponent implements OnInit {
 
   protected restaurants = [];
 
+  @Input() todos: boolean;
+  @Input() required: boolean;
+
   @Input() restaurant;
   @Output() restaurantChange = new EventEmitter();
 
   constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit() {
-    console.log( 'Valor Padrao', this.restaurant )
-
     this.restaurantService.getAll().subscribe(
       (data) => {
         this.restaurants = data;
-        this.restaurant = 3;
       },
       (err) => {
         console.log('Erro ao carregar restaurantes (Restaurant Select)');
@@ -32,7 +32,6 @@ export class RestaurantSelectComponent implements OnInit {
   }
 
   onChange(select) {
-    console.log('select', select);
     this.restaurantChange.emit( select.value );
   }
 

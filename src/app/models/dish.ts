@@ -4,5 +4,5 @@ export class Dish {
   id?: number;
   name?: string;
   price?: number;
-  restaurant?: Restaurant;
+  restaurantId?: number;
 }

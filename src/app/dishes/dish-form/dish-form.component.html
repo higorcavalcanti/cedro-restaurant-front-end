@@ -1,0 +1,29 @@
+<p-fieldset legend="Informações do Prato" *ngIf="dish">
+  <div class="ui-g">
+    <div class="ui-sm-10 ui-md-8 ui-lg-5">
+      <app-restaurant-select [(restaurant)]="dish.restaurantId" required>
+      </app-restaurant-select>
+
+      <mat-form-field>
+        <input matInput placeholder="Nome do prato" [(ngModel)]="dish.name" required/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="number" placeholder="Preço" [(ngModel)]="dish.price" required/>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <button mat-raised-button color="warn" (click)="cancel()">
+    <mat-icon aria-label="Cancelar">cancel</mat-icon>
+    Cancelar
+  </button>
+  <button type="submit" mat-raised-button color="primary" (click)="save()" *ngIf="!isEditing">
+    <mat-icon aria-label="Adicionar Prato">add</mat-icon>
+    Adicionar
+  </button>
+  <button type="submit" mat-raised-button color="primary" (click)="save()" *ngIf="isEditing">
+    <mat-icon aria-label="Salvar Prato">save</mat-icon>
+    Salvar
+  </button>
+</p-fieldset>

@@ -55,11 +55,20 @@ export class DishListComponent implements OnInit, AfterViewInit {
   }
 
   remove(dish) {
-
+    console.log('Remover', dish);
+    if (confirm(`Deseja realmente remover o prato '${dish.name}'?`)) {
+      this.dishesService.delete(dish.id).subscribe(
+        (data) => {
+          this.snackBar.open('Prato removido com sucesso!', 'Fechar', {duration: 5000});
+          this._dishes = this._dishes.filter(item => {
+            return item.id !== dish.id;
+          });
+        },
+        (err) => {
+          console.log('Erro apagar', err);
+          this.snackBar.open('Falha ao remover prato!', 'Fechar');
+        }
+      );
+    }
   }
-
-  change(a) {
-    console.log('list', a);
-  }
-
 }

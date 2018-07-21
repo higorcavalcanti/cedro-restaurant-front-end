@@ -1,6 +1,7 @@
 <mat-form-field>
-  <mat-select [(ngModel)]="restaurant" (selectionChange)="onChange($event)" placeholder="Selecione um restaurante">
-    <mat-option value="">Todos</mat-option>
+  <mat-select [(ngModel)]="restaurant" (selectionChange)="onChange($event)" placeholder="Selecione um restaurante"
+              [required]="required">
+    <mat-option value="" *ngIf="todos">Todos</mat-option>
     <mat-option *ngFor="let r of restaurants" [value]="r.id">{{r.name}}</mat-option>
   </mat-select>
 </mat-form-field>

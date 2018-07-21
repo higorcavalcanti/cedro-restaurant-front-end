@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RestaurantsModule} from '../restaurants/restaurants.module';
 
-import { DishesRoutingModule } from './dishes-routing.module';
-import { DishListComponent } from './dish-list/dish-list.component';
+import {DishesRoutingModule} from './dishes-routing.module';
+import {DishListComponent} from './dish-list/dish-list.component';
+import {DishFormComponent} from './dish-form/dish-form.component';
 
 // PrimeNG
 import {FieldsetModule} from 'primeng/fieldset';
@@ -19,7 +20,6 @@ import {
   MatIconModule,
   MatSnackBarModule
 } from '@angular/material';
-
 
 
 @NgModule({
@@ -40,6 +40,7 @@ import {
     MatIconModule,
     MatSnackBarModule,
   ],
-  declarations: [DishListComponent]
+  declarations: [DishListComponent, DishFormComponent]
 })
-export class DishesModule { }
+export class DishesModule {
+}

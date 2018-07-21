@@ -11,7 +11,8 @@
       </mat-form-field>
     </div>
     <div class="ui-sm-12 ui-md-12 ui-lg-5">
-      <app-restaurant-select [(restaurant)]="filtro.restaurant"></app-restaurant-select>
+      <app-restaurant-select [(restaurant)]="filtro.restaurant" [todos]="true">
+      </app-restaurant-select>
     </div>
   </div>
 </p-fieldset>
