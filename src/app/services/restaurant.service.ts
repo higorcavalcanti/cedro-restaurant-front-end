@@ -33,10 +33,7 @@ export class RestaurantService {
     return this.http.put(URL, restaurant);
   }
 
-  public delete(id: number|Restaurant) {
-    if ( id instanceof Restaurant ) {
-      id = id.id;
-    }
+  public delete(id: number) {
     const URL = `${environment.API_URL}/restaurants/${id}`;
     return this.http.delete(URL);
   }
