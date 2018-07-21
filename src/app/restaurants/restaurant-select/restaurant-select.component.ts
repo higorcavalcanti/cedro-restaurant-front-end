@@ -1,4 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {forwardRef} from '@angular/core';
+import {
+  AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors,
+  Validator
+} from '@angular/forms';
 
 // Provider
 import {RestaurantService} from '../../services/restaurant.service';
@@ -6,17 +11,27 @@ import {RestaurantService} from '../../services/restaurant.service';
 @Component({
   selector: 'app-restaurant-select',
   templateUrl: './restaurant-select.component.html',
-  styleUrls: ['./restaurant-select.component.css']
+  styleUrls: ['./restaurant-select.component.css'],
+  exportAs: 'ngModel',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => RestaurantSelectComponent),
+      multi: true,
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => RestaurantSelectComponent),
+      multi: true,
+    }]
 })
-export class RestaurantSelectComponent implements OnInit {
+export class RestaurantSelectComponent implements OnInit, ControlValueAccessor, Validator {
 
   protected restaurants = [];
+  protected restaurant: number;
 
-  @Input() todos: boolean;
   @Input() required: boolean;
-
-  @Input() restaurant;
-  @Output() restaurantChange = new EventEmitter();
+  @Input() todos: boolean;
 
   constructor(private restaurantService: RestaurantService) { }
 
@@ -32,7 +47,25 @@ export class RestaurantSelectComponent implements OnInit {
   }
 
   onChange(select) {
-    this.restaurantChange.emit( select.value );
+    this.propagateChange( select.value );
   }
 
+  writeValue(obj: any): void {
+    if (obj) {
+      this.restaurant = obj;
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+  }
+
+  validate(c: AbstractControl): ValidationErrors | any {
+    return this.restaurant !== undefined;
+  }
+
+  private propagateChange = (_: any) => { };
 }
