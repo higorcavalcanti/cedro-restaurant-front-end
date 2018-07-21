@@ -23,7 +23,7 @@ export class RestaurantFormComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private snackBar: MatSnackBar,
-              protected restauranteService: RestaurantService) { }
+              private restauranteService: RestaurantService) { }
 
   ngOnInit() {
     this.isEditing = (this.route.snapshot.data.edit === true);
