@@ -13,7 +13,7 @@ import {RestaurantService} from '../../services/restaurant.service';
 export class RestaurantListComponent implements OnInit, AfterViewInit {
 
   // Filtro
-  protected filtro: {name: string} = { name: ''};
+  protected filtro: {name: string} = { name: '' };
 
   // Restaurantes
   private _restaurants;
@@ -55,7 +55,7 @@ export class RestaurantListComponent implements OnInit, AfterViewInit {
       this.restaurantService.delete(restaurant.id).subscribe(
         (data) => {
           this.snackBar.open('Restaurante apagado com sucesso!', 'Fechar', {duration: 5000});
-          this.restaurants = this.restaurants.filter(item => {
+          this._restaurants = this._restaurants.filter(item => {
             return item.id !== restaurant.id;
           });
         },
