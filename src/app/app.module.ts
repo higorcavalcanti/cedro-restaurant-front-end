@@ -3,6 +3,13 @@ import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 
+// Locale
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+import localePtExtra from '@angular/common/locales/extra/pt';
+registerLocaleData(localePt, localePtExtra);
+
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
