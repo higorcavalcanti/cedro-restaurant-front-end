@@ -8,17 +8,17 @@
       <a mat-list-item routerLinkActive="mat-list-item-active" routerLink="/home">
         Página Inicial
       </a>
-      <a mat-list-item routerLinkActive="active-link" routerLink="/restaurants">
+      <a mat-list-item routerLinkActive="mat-list-item-active" routerLink="/restaurants">
         Restaurantes
       </a>
-      <a mat-list-item routerLinkActive="active-link" routerLink="/dishes">
+      <a mat-list-item routerLinkActive="mat-list-item-active" routerLink="/dishes">
         Pratos
       </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary" style="z-index: 100">
-      <button mat-icon-button aria-label="Navegação" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+      <button mat-button aria-label="Navegação" (click)="drawer.toggle()" *ngIf="isHandset$ | async">
         <mat-icon aria-label="Alterar navegação">menu</mat-icon>
       </button>
       <span>{{title}}</span>

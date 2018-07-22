@@ -19,6 +19,7 @@ import {
   MatSidenavModule,
   MatIconModule,
   MatListModule,
+  MatButtonModule,
 } from '@angular/material';
 
 // Providers
@@ -41,6 +42,7 @@ import {DishesService} from './services/dishes.service';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatButtonModule,
   ],
   providers: [
     RestaurantService,
