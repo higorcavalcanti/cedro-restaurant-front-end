@@ -1,27 +1,40 @@
-# CedroRestaurantFrontEnd
+# Cedro Restaurante FrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+Este projeto foi desenvolvido como forma de avaliação para o processo seletivo da [Cedro](https://www.cedrotech.com "Cedro"). O projeto consiste em um básico sistema para gerênciar cadastro de restaurantes e os seus respectivos pratos.
 
-## Development server
+## FrontEnd
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+O FrontEnd foi desenvolvido utilizando-se o *Angular 6 *em conjunto com o *Angular Material* e o *PrimeNG*.
+O sistema conta com 6 páginas:
 
-## Code scaffolding
+### Página Inicial
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+É a primeira página do sistema, apenas mostra uma imagem relacionada.
+![Página Inicial](https://raw.githubusercontent.com/higorcavalcanti/cedro-restaurant-front-end/93fccc5b142d3c76a68452b81c73c276d491b3f7/screenshots/Pagina%20Inicial.png)
 
-## Build
+### Restaurantes
+#### Gerenciar Restaurantes
+Página acessada através do link **Restaurantes** no Menu. Esta página mostra uma lista de todos os restaurantes cadastrados. É possível filtrar os dados e procurar um restaurante pelo seu nome, editar o restaurante, deletar ou adicionar um novo.
+![Gerenciar Restaurantes](https://raw.githubusercontent.com/higorcavalcanti/cedro-restaurant-front-end/93fccc5b142d3c76a68452b81c73c276d491b3f7/screenshots/Gerenciar%20Restaurantes.png "Gerenciar Restaurantes")
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Adicionar Restaurante
+Página mostrada ao clicar no botão **Adicionar**. Para adicionar um restaurante é obrigatório a presença de um nome.
+![Adicionar Restaurante](https://raw.githubusercontent.com/higorcavalcanti/cedro-restaurant-front-end/93fccc5b142d3c76a68452b81c73c276d491b3f7/screenshots/Adicionar%20Restaurante.png "Adicionar Restaurante")
 
-## Running unit tests
+#### Editar Restaurante
+Página acessada ao clicar no **lapis azul** referente ao restaurante na lista de restaurantes. Para editar o restaurante também é obrigatório a presença do nome e este nome já vem preenchido com o nome do restaurante atual.
+![Editar Restaurante](https://raw.githubusercontent.com/higorcavalcanti/cedro-restaurant-front-end/93fccc5b142d3c76a68452b81c73c276d491b3f7/screenshots/Editar%20Restaurante.png "Editar Restaurante")
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Pratos
 
-## Running end-to-end tests
+#### Gerenciar Pratos
+Página acessada ao clicar na opção **Pratos** no menu principal. Esta página mostra todos os pratos cadastrados no sistema, bem como o restaurante que este prato pertence. É possível filtrar por nome do prato ou pelo restaurante. Também é possível o cadastro, edição e remoção dos pratos existentes.
+![Gerenciar Pratos](https://raw.githubusercontent.com/higorcavalcanti/cedro-restaurant-front-end/93fccc5b142d3c76a68452b81c73c276d491b3f7/screenshots/Gerenciar%20Pratos.png "Gerenciar Pratos")
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### Adicionar Prato
+Página acessada ao selecionar a opção **Adicionar** na tela **Gerenciar Pratos**. Para adicionar um prato é obrigatório a presença do **nome**, **preco** e **restaurante** do prato, onde o restaurante deverá ser selecionado de uma lista pré-definida contendo todos os restaurantes cadastrados no sistema.
+![Adicionar Prato](https://raw.githubusercontent.com/higorcavalcanti/cedro-restaurant-front-end/93fccc5b142d3c76a68452b81c73c276d491b3f7/screenshots/Adicionar%20Prato.png "Adicionar Prato")
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Editar Prato
+Página acessada ao clicar no **lapis azul** referente ao prato na tela de **Gerenciar Pratos**. Para editar um prato é obrigatório a presença do **nome**, **preço** e **restaurante**, onde o restaurante é selecionado de uma lista pré-definida com todos os restaurantes cadastrados no sistema.
+![Editar Prato](https://raw.githubusercontent.com/higorcavalcanti/cedro-restaurant-front-end/93fccc5b142d3c76a68452b81c73c276d491b3f7/screenshots/Editar%20Prato.png "Editar Prato")
