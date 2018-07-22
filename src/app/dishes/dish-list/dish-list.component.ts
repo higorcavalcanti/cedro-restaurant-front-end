@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 
 // Material
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar, Sort} from '@angular/material';
 
 // Provider
 import {DishesService} from '../../services/dishes.service';
@@ -14,6 +14,7 @@ import {DishesService} from '../../services/dishes.service';
 export class DishListComponent implements OnInit, AfterViewInit {
 
   filtro: { name?: string, restaurant?: number } = { name: '' };
+  sort: { active?: string, direction?: string } = {};
 
   // Pratos
   private _dishes;
@@ -24,14 +25,27 @@ export class DishListComponent implements OnInit, AfterViewInit {
     if (!this._dishes) {
       return [];
     }
-    return this._dishes.filter(d => {
-      const check1 = (d.name.toLowerCase().indexOf( this.filtro.name.toLowerCase() ) >= 0);
-      let check2 = true;
-      if (this.filtro.restaurant) {
-        check2 = d.restaurantId == this.filtro.restaurant;
-      }
-      return check1 && check2;
-    });
+    return this._dishes
+      .filter(d => {
+        const check1 = (d.name.toLowerCase().indexOf( this.filtro.name.toLowerCase() ) >= 0);
+        let check2 = true;
+        if (this.filtro.restaurant) {
+          check2 = d.restaurantId == this.filtro.restaurant;
+        }
+        return check1 && check2;
+      })
+      .sort((a, b) => {
+        if (!this.sort.active || this.sort.direction === '') {
+          return false;
+        }
+        const isAsc = this.sort.direction === 'asc';
+        switch (this.sort.active) {
+          case 'name': return this.sortCompare(a.name, b.name, isAsc);
+          case 'restaurant': return this.sortCompare(a.restaurant.name, b.restaurant.name, isAsc);
+          case 'price': return this.sortCompare(a.price, b.price, isAsc);
+          default: return 0;
+        }
+      });
   }
 
   displayedColumns = ['name', 'restaurant', 'price', 'opcoes'];
@@ -71,4 +85,15 @@ export class DishListComponent implements OnInit, AfterViewInit {
       );
     }
   }
+
+  sortData(sort: Sort) {
+    console.log('Sort data', sort);
+    this.sort = sort;
+  }
+
+  private sortCompare(a, b, isAsc) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }
+
 }
+

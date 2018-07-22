@@ -18,7 +18,8 @@ import {
   MatInputModule,
   MatButtonModule,
   MatIconModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatSortModule
 } from '@angular/material';
 
 
@@ -39,6 +40,7 @@ import {
     MatButtonModule,
     MatIconModule,
     MatSnackBarModule,
+    MatSortModule,
   ],
   declarations: [DishListComponent, DishFormComponent]
 })
