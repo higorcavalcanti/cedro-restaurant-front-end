@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: DishListComponent,
     data: {
-      title: 'Gerênciar Pratos'
+      title: 'Gerenciar Pratos'
     }
   },
   {
