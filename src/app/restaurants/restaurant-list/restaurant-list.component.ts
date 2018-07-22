@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar, Sort} from '@angular/material';
 
 // Providers
 import {RestaurantService} from '../../services/restaurant.service';
@@ -14,6 +14,7 @@ export class RestaurantListComponent implements OnInit, AfterViewInit {
 
   // Filtro
   protected filtro: {name: string} = { name: '' };
+  protected sort: { active?: string, direction?: string } = {};
 
   // Restaurantes
   private _restaurants;
@@ -24,9 +25,20 @@ export class RestaurantListComponent implements OnInit, AfterViewInit {
     if (!this._restaurants) {
       return [];
     }
-    return this._restaurants.filter(r => {
-      return (r.name.toLowerCase().indexOf( this.filtro.name.toLowerCase() ) >= 0);
-    });
+    return this._restaurants
+      .filter(r => {
+        return (r.name.toLowerCase().indexOf( this.filtro.name.toLowerCase() ) >= 0);
+      })
+      .sort((a, b) => {
+        if (!this.sort.active || this.sort.direction === '') {
+          return false;
+        }
+        const isAsc = this.sort.direction === 'asc';
+        switch (this.sort.active) {
+          case 'name': return this.sortCompare(a.name, b.name, isAsc);
+          default: return 0;
+        }
+      });
   }
 
   displayedColumns = ['name', 'opcoes'];
@@ -65,5 +77,13 @@ export class RestaurantListComponent implements OnInit, AfterViewInit {
         }
       );
     }
+  }
+
+  sortData(sort: Sort) {
+    this.sort = sort;
+  }
+
+  private sortCompare(a, b, isAsc) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }
 }

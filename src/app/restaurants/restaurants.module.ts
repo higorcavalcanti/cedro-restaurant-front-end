@@ -14,6 +14,7 @@ import {FieldsetModule} from 'primeng/fieldset';
 // Material
 import {
   MatTableModule,
+  MatSortModule,
   MatFormFieldModule,
   MatInputModule,
   MatButtonModule,
@@ -32,6 +33,7 @@ import {
     FieldsetModule,
     // Material:
     MatTableModule,
+    MatSortModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,

@@ -1,22 +1,27 @@
-<p-fieldset legend="Informações do Restaurante" *ngIf="restaurant">
-  <div class="ui-g">
-    <div class="ui-sm-10 ui-md-8 ui-lg-5">
-      <mat-form-field>
-        <input matInput placeholder="Nome do restaurante" [(ngModel)]="restaurant.name"/>
-      </mat-form-field>
+<form #form="ngForm" (ngSubmit)="save()">
+  <p-fieldset legend="Informações do Restaurante" *ngIf="restaurant">
+    <div class="ui-g">
+      <div class="ui-sm-10 ui-md-8 ui-lg-5">
+        <mat-form-field>
+          <input matInput #name="ngModel" name="name" placeholder="Nome do restaurante" [(ngModel)]="restaurant.name" required/>
+          <mat-error *ngIf="name.touched && !name.valid">
+            Insira o <strong>nome</strong> do prato
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
-  </div>
 
-  <button mat-raised-button color="warn" (click)="cancel()">
-    <mat-icon aria-label="Cancelar">cancel</mat-icon>
-    Cancelar
-  </button>
-  <button mat-raised-button color="primary" (click)="save()" *ngIf="!isEditing">
-    <mat-icon aria-label="Adicionar Restaurante">add</mat-icon>
-    Adicionar
-  </button>
-  <button mat-raised-button color="primary" (click)="save()" *ngIf="isEditing">
-    <mat-icon aria-label="Salvar Restaurante">save</mat-icon>
-    Salvar
-  </button>
-</p-fieldset>
+    <button mat-raised-button color="warn" (click)="cancel()">
+      <mat-icon aria-label="Cancelar">cancel</mat-icon>
+      Cancelar
+    </button>
+    <button mat-raised-button color="primary" (click)="save()" *ngIf="!isEditing" [disabled]="!form.valid">
+      <mat-icon aria-label="Adicionar Restaurante">add</mat-icon>
+      Adicionar
+    </button>
+    <button mat-raised-button color="primary" (click)="save()" *ngIf="isEditing" [disabled]="!form.valid">
+      <mat-icon aria-label="Salvar Restaurante">save</mat-icon>
+      Salvar
+    </button>
+  </p-fieldset>
+</form>

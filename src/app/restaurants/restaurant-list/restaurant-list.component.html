@@ -20,10 +20,10 @@
     Adicionar
   </button>
 
-  <table mat-table #table [dataSource]="restaurants" aria-label="Restaurantes">
+  <table mat-table #table [dataSource]="restaurants" aria-label="Restaurantes" matSort (matSortChange)="sortData($event)">
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Nome do Restaurante</th>
+      <th mat-sort-header="name" mat-header-cell *matHeaderCellDef>Nome do Restaurante</th>
       <td mat-cell *matCellDef="let row">{{row.name}}</td>
     </ng-container>
 
