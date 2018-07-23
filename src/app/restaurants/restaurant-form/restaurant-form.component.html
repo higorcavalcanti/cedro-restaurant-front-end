@@ -15,11 +15,11 @@
       <mat-icon aria-label="Cancelar">cancel</mat-icon>
       Cancelar
     </button>
-    <button mat-raised-button color="primary" (click)="save()" *ngIf="!isEditing" [disabled]="!form.valid">
+    <button mat-raised-button color="primary" *ngIf="!isEditing" [disabled]="!form.valid">
       <mat-icon aria-label="Adicionar Restaurante">add</mat-icon>
       Adicionar
     </button>
-    <button mat-raised-button color="primary" (click)="save()" *ngIf="isEditing" [disabled]="!form.valid">
+    <button mat-raised-button color="primary" *ngIf="isEditing" [disabled]="!form.valid">
       <mat-icon aria-label="Salvar Restaurante">save</mat-icon>
       Salvar
     </button>

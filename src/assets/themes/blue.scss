@@ -9,3 +9,13 @@ $restaurant-app-warn:    mat-palette($mat-red);
 $restaurant-app-theme: mat-light-theme($restaurant-app-primary, $restaurant-app-accent, $restaurant-app-warn);
 
 @include angular-material-theme($restaurant-app-theme);
+
+/*
+// Dark mode
+p-fieldset {
+  fieldset, fieldset>legend {
+    background-color: #424242 !important;
+    color: unset !important;
+  }
+}
+*/

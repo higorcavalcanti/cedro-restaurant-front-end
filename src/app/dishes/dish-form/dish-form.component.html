@@ -26,11 +26,11 @@
       <mat-icon aria-label="Cancelar">cancel</mat-icon>
       Cancelar
     </button>
-    <button type="submit" mat-raised-button color="primary" (click)="save()" *ngIf="!isEditing" [disabled]="!form.valid">
+    <button type="submit" mat-raised-button color="primary" *ngIf="!isEditing" [disabled]="!form.valid">
       <mat-icon aria-label="Adicionar Prato">add</mat-icon>
       Adicionar
     </button>
-    <button type="submit" mat-raised-button color="primary" (click)="save()" *ngIf="isEditing" [disabled]="!form.valid">
+    <button type="submit" mat-raised-button color="primary" *ngIf="isEditing" [disabled]="!form.valid">
       <mat-icon aria-label="Salvar Prato">save</mat-icon>
       Salvar
     </button>
