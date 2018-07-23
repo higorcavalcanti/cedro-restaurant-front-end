@@ -1,8 +1,25 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed, async} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import {LayoutModule} from '@angular/cdk/layout';
+import {MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        BrowserAnimationsModule,
+        // Material
+        LayoutModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatButtonModule,
+      ],
       declarations: [
         AppComponent
       ],
@@ -22,6 +39,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to cedro-restaurant-front-end!');
+    const component = compiled.querySelector('mat-sidenav-container mat-sidenav-content mat-toolbar span');
+    expect(component.textContent).toContain('app');
   }));
 });
