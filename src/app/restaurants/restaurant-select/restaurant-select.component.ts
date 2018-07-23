@@ -41,7 +41,7 @@ export class RestaurantSelectComponent implements OnInit, ControlValueAccessor, 
         this.restaurants = data;
       },
       (err) => {
-        console.log('Erro ao carregar restaurantes (Restaurant Select)');
+        console.error('Erro ao carregar restaurantes (Restaurant Select)');
       }
     );
   }

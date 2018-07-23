@@ -53,16 +53,16 @@ export class RestaurantListComponent implements OnInit, AfterViewInit {
     this.restaurantService.getAll().subscribe(
       (data) => {
         this.restaurants = data;
-        console.log('restaurantes', data);
+        // console.log('restaurantes', data);
       },
       (err) => {
-        console.log('Erro', err);
+        console.error('Erro', err);
       }
     );
   }
 
   remove(restaurant) {
-    console.log('Remover', restaurant);
+    // console.log('Remover', restaurant);
     if (confirm(`Deseja realmente remover o restaurante '${restaurant.name}'?`)) {
       this.restaurantService.delete(restaurant.id).subscribe(
         (data) => {
@@ -72,7 +72,7 @@ export class RestaurantListComponent implements OnInit, AfterViewInit {
           });
         },
         (err) => {
-          console.log('Erro apagar', err);
+          console.error('Erro apagar', err);
           this.snackBar.open('Falha ao deletar restaurante!', 'Fechar');
         }
       );

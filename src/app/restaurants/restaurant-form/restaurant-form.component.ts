@@ -43,10 +43,10 @@ export class RestaurantFormComponent implements OnInit {
     this.restauranteService.get( id ).subscribe(
       (r) => {
         this.restaurant = r;
-        console.log('Restaurante', r);
+        // console.log('Restaurante', r);
       },
       (err) => {
-        console.log('Erro ao carregar restaurante', err);
+        console.error('Erro ao carregar restaurante', err);
 
         if (err.status === 404) {
           alert('O Restaurante informado não existe!');
@@ -72,12 +72,12 @@ export class RestaurantFormComponent implements OnInit {
   save() {
     this.getSaveFunction().subscribe(
       (r) => {
-        console.log('Salvo', r);
+        // console.log('Salvo', r);
         this.snackBar.open('Restaurante salvo com sucesso!', 'Fechar', {duration: 5000});
         this.goIndex();
       },
       (err) => {
-        console.log('Erro ao salvar', err);
+        console.error('Erro ao salvar', err);
         this.snackBar.open('Falha ao salvar restaurante!', 'Fechar', {duration: 5000});
       }
     );

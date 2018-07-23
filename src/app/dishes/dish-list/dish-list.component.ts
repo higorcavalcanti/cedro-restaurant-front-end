@@ -60,16 +60,16 @@ export class DishListComponent implements OnInit, AfterViewInit {
     this.dishesService.getAll().subscribe(
       (data) => {
         this.dishes = data;
-        console.log('Pratos', data);
+        // console.log('Pratos', data);
       },
       (err) => {
-        console.log('Erro', err);
+        console.error('Erro', err);
       }
     );
   }
 
   remove(dish) {
-    console.log('Remover', dish);
+    // console.log('Remover', dish);
     if (confirm(`Deseja realmente remover o prato '${dish.name}'?`)) {
       this.dishesService.delete(dish.id).subscribe(
         (data) => {
@@ -79,7 +79,7 @@ export class DishListComponent implements OnInit, AfterViewInit {
           });
         },
         (err) => {
-          console.log('Erro apagar', err);
+          console.error('Erro apagar', err);
           this.snackBar.open('Falha ao remover prato!', 'Fechar');
         }
       );
@@ -87,7 +87,6 @@ export class DishListComponent implements OnInit, AfterViewInit {
   }
 
   sortData(sort: Sort) {
-    console.log('Sort data', sort);
     this.sort = sort;
   }
 

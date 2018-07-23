@@ -43,11 +43,11 @@ export class DishFormComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.dishService.get(id).subscribe(
       (d) => {
-        console.log('Prato', d);
+        // console.log('Prato', d);
         this.dish = d;
       },
       (err) => {
-        console.log('Erro ao carregar prato', err);
+        console.error('Erro ao carregar prato', err);
 
         if (err.status === 404) {
           alert('O Prato informado não existe!');
@@ -73,12 +73,12 @@ export class DishFormComponent implements OnInit {
   save() {
     this.getSaveFunction().subscribe(
       (r) => {
-        console.log('Salvo', r);
+        // console.log('Salvo', r);
         this.snackBar.open('Prato salvo com sucesso!', 'Fechar', {duration: 5000});
         this.goIndex();
       },
       (err) => {
-        console.log('Erro ao salvar', err);
+        console.error('Erro ao salvar', err);
         this.snackBar.open('Falha ao salvar prato!', 'Fechar', {duration: 5000});
       }
     );
